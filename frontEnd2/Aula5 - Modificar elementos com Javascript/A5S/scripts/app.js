@@ -1,9 +1,23 @@
 
 // Modificando Fundo
 
+let botao = document.getElementById('botao')
+
+
+
+if (botao == checked) {
 const backgroundDark = document.querySelector('body');
 
 backgroundDark.classList.toggle('backgroundDark');
+} else {
+   let backgroundDark = document.querySelector('body');
+
+backgroundDark.classList.toggle('body');
+}
+
+
+
+
 
 // Modificando h1 - Titulo
 
@@ -22,4 +36,6 @@ cardsDark.forEach (element => {
 
 const cardTextDark = document.querySelectorAll('.item h2, p');
 
-
+cardTextDark.forEach (element => {
+    element.classList.toggle('cardTextDark')
+}); 
