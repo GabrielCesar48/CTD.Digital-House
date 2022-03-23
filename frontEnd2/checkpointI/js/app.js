@@ -1,30 +1,29 @@
-
-// Capturando as informações para manipulação
-let nomeAnimal = document.getElementById('name');
-let descricaoAnimal = document.getElementById('descricao');
-let fotoAnimal = document.getElementById('url');
-let botaoEnviar = document.getElementById('submitButton');
-
-// Ao clicar no botao, executa as ações abaixo
-botaoEnviar.addEventListener("click", function (evento) {
-
-    // Evita que a página seja atualizada e que o evento de submit seja disparado
-    evento.preventDefault();
-
-     /* Incova função que exibe os dados em tela */
-    exibeDadosEmTela(nomeAnimal.value, descricaoAnimal.value, fotoAnimal.value)
-
-})
-
-// Função chamada para exibir as informações em tela
-
-function exibeDadosEmTela(nome, descricao, foto) {
-
-    let nomeDeclarado = document.getElementById('nomeAnimal');
-    nomeDeclarado.innerText = nome;
-
-    let descricaoDeclarada = document.getElementById("descricaoAnimal");
-    descricaoDeclarada.innerText = descricao;
-
-    let fotoDeclarada = document.getElementById
-}
+// Função seleciona ID
+function selectId(id) {
+    return document.getElementById(id);
+  }
+  
+  //Variaveis de captura
+  let nomeAnimal = selectId("name");
+  let descricaoAnimal = selectId("descricao");
+  let imagemAnimal = selectId("url");
+  
+  let salvar = selectId("submitButton");
+  
+  
+  salvar.addEventListener("click", function (event) {
+    event.preventDefault();
+    insereNaLista(nomeAnimal, descricaoAnimal, imagemAnimal);
+  });
+  
+  function insereNaLista(nomeAnimal, descricaoAnimal, imagemAnimal) {
+    // Criando o elemento item
+    const item = `<div class="localAnimal portfolio-item mx-auto">
+    <h4>${nomeAnimal.value}</h4>
+    <p>${descricaoAnimal.value}</p>
+    <img src="${imagemAnimal.value}" class="img-fluid"/>
+    </div>`;
+    //Pegando o destino
+    const listaDeEstudo = selectId("localAnimal");
+    listaDeEstudo.innerHTML = listaDeEstudo.innerHTML + item;
+  }
